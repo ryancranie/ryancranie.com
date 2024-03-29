@@ -109,7 +109,6 @@ commit() {
 
 main() {
   check_env
-  checkout_latest_release
   init_files
   commit
 }
