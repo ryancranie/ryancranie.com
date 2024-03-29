@@ -3,7 +3,7 @@ layout: post
 title:  "First Post & Test Post"
 date:   2024-03-29 22:48:00
 categories: jekyll
-tags: jekyll
+tags: jekyll test
 ---
 
 So after hours of trying to import a Jekyll theme, I finally have one up and running. It feels great.
