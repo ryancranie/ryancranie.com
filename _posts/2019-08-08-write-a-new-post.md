@@ -58,7 +58,6 @@ Adding author information in `_data/authors.yml` (If your website doesn't have t
 ```
 {: file="_data/authors.yml" }
 
-
 And then use `author` to specify a single entry or `authors` to specify multiple entries:
 
 ```yaml
@@ -73,6 +72,18 @@ Having said that, the key `author` can also identify multiple entries.
 
 > The benefit of reading the author information from the file `_data/authors.yml`{: .filepath } is that the page will have the meta tag `twitter:creator`, which enriches the [Twitter Cards](https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started#card-and-content-attribution) and is good for SEO.
 {: .prompt-info }
+
+### Post Description
+
+By default, the first words of the post are used to display on the home page for a list of posts, in the _Further Reading_ section, and in the XML of the RSS feed. If you don't want to display the auto-generated description for the post, you can customize it using the `description` field in the _Front Matter_ as follows:
+
+```yaml
+---
+description: Short summary of the post.
+---
+```
+
+Additionally, the `description` text will also be displayed under the post title on the post's page.
 
 ## Table of Contents
 
@@ -320,7 +331,6 @@ image:
 
 > You can observe LQIP in the preview image of post [_Text and Typography_](/posts/text-and-typography/).
 
-
 For normal images:
 
 ```markdown
@@ -427,6 +437,8 @@ Or adding `render_with_liquid: false` (Requires Jekyll 4.0 or higher) to the pos
 
 ## Videos
 
+### Video Sharing Platform
+
 You can embed a video with the following syntax:
 
 ```liquid
@@ -442,6 +454,31 @@ The following table shows how to get the two parameters we need in a given video
 | [https://www.**youtube**.com/watch?v=**H-B46URT4mg**](https://www.youtube.com/watch?v=H-B46URT4mg) | `youtube`  | `H-B46URT4mg`  |
 | [https://www.**twitch**.tv/videos/**1634779211**](https://www.twitch.tv/videos/1634779211)         | `twitch`   | `1634779211`   |
 | [https://www.**bilibili**.com/video/**BV1Q44y1B7Wf**](https://www.bilibili.com/video/BV1Q44y1B7Wf) | `bilibili` | `BV1Q44y1B7Wf` |
+
+### Video File
+
+If you want to embed a video file directly, use the following syntax:
+
+```liquid
+{% include embed/video.html src='{URL}' %}
+```
+
+Where `URL` is an URL to a video file e.g. `/assets/img/sample/video.mp4`.
+
+You can also specify additional attributes for the embedded video file. Here is a full list of attributes allowed.
+
+- `poster='/path/to/poster.png'` - poster image for a video that is shown while video is downloading
+- `title='Text'` - title for a video that appears below the video and looks same as for images
+- `autoplay=true` - video automatically begins to play back as soon as it can
+- `loop=true` - automatically seek back to the start upon reaching the end of the video
+- `muted=true` - audio will be initially silenced
+
+Consider an example utilizing all of the above:
+
+```liquid
+{% include embed/video.html src='video.mp4' poster='poster.png' title='Demo video'
+   autoplay=true loop=true muted=true %}
+```
 
 ## Learn More
 
